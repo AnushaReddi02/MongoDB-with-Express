@@ -20,20 +20,8 @@ main()
 
 async function main(){
     // texty is the name of database
-    await mongoose.connect('mongodb://127.0.0.1:27017/texty')
+    await mongoose.connect('mongodb://127.0.0.1:27017/texty');
 }
-
-let chat1 = new Chat ({
-    from : "Anu",
-    to : "Sissy",
-    msg : "Sisssyy,How's ur day!",
-    created_at : new Date()
-});
-
-chat1.save()
-  .then((res)=>{
-    console.log(res);
-});
 
 app.get("/",(req,res)=>{
     res.send("Basic set up is Clear...!!!");
