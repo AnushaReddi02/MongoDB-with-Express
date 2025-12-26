@@ -19,6 +19,18 @@
         <div class="msg">
             <p><%= chat.msg %></p>
         </div>
+        <p class="time"><%= chat.created_at.toString().split(" ")[4] %></p>
+         <!-- chat.created_at : Wed Dec 24 2025 17:38:04 GMT+0530 (India Standard Time) -->
+
+        <!-- toString()->converts the date into String
+         split() -> splits the string into parts based on a delimeter (',' , ' ' , '_' , ...)
+        [4]->gives the 4th element of the array (i.e., time). -->
+
+        <p class="time"><%= chat.created_at.toString().split(" ").slice(0,4).join(" ") %></p>
+
+        <!-- slice(0,4) -> creates an array from index 0 to inder 3.
+        join(" ") -> converts the resulted array into string by space -->
+
     </div> <br /> <br /> <hr />
 <% } %>
 </body>

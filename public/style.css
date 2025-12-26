@@ -52,3 +52,6 @@ textarea{
     font-size: larger;
     background-color: antiquewhite;
 }
+.time{
+    text-align: end;
+}
