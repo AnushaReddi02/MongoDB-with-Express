@@ -18,6 +18,9 @@
         <p>Message : </p>
         <div class="msg">
             <p><%= chat.msg %></p>
+            <form action="/chats/<%= chat._id %>/edit" method="GET">
+                <button class="edit">EDIT</button>
+            </form>
         </div>
         <p class="time"><%= chat.created_at.toString().split(" ")[4] %></p>
          <!-- chat.created_at : Wed Dec 24 2025 17:38:04 GMT+0530 (India Standard Time) -->

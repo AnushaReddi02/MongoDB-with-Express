@@ -2,13 +2,15 @@ const express = require("express");
 const app = express();
 const mongoose = require('mongoose');
 const path = require("path");
+const methodOverride = require("method-override");
 
-const Chat = require('./models/chat.js')
+const Chat = require('./models/chat.js');
 
 app.set("views",path.join(__dirname,"views"));
 app.set("view wngine","ejs");
 app.use(express.static(path.join(__dirname,"public")));
 app.use(express.urlencoded({extended:true}));
+app.use(methodOverride("_method"));
 
 const port = 8080;
 
@@ -45,7 +47,7 @@ app.get("/chats/new",(req,res)=>{
 
 //Create Route : Inserts newly created data into database
 app.post("/chats",(req,res)=>{
-    let {from,to,msg} = req.body;
+    let {_id,from,to,msg} = req.body;
     let newChat = new Chat({
         from : from,
         to : to,
@@ -62,6 +64,34 @@ app.post("/chats",(req,res)=>{
     res.redirect("/chats");
     //Athough here save() is asynchronous func..we aren't using await because we used then so no need of asyn-await 
 })
+
+//Edit route : To edit a chat
+app.get("/chats/:id/edit", async(req,res) => {
+    let {id} = req.params;
+    let chat = await Chat.findById(id);
+    res.render("edit.ejs",{chat});
+});
+
+//Update Route : To update the db with edited message
+app.put("/chats/:id",async (req,res)=>{
+    let {id} = req.params;
+    // req.params -> used to get values from the URL
+    // Here, 'id' comes from the route '/chats/:id'
+    // It tells us WHICH chat needs to be updated
+
+    let {msg : newMsg} = req.body; 
+    // req.body -> used to get data sent from the form
+    // Here, 'msg' is the updated message entered by the user
+    // Renaming 'msg' to 'newMsg' for better readability
+    let updatedChat = await Chat.findByIdAndUpdate(
+        id,
+        {msg : newMsg},
+        {runValidators : true, new : true}   //runValidators : true ->To make sure SchemaValidation is satisfied at the time of updation
+        //new : true -> prints the updated msg instead of old one
+    )
+    console.log(updatedChat);
+    res.redirect("/chats");
+});
    
 app.listen(port,()=>{
     console.log(`Server is listening on port ${port}`);
