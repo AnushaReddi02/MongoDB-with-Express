@@ -36,6 +36,7 @@ how **Express, MongoDB, and EJS** work together in a full-stack web application.
 ---
 
 ## 📂 Project Structure
+text
 
 Texty/
 │
