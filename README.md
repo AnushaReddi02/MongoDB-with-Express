@@ -88,7 +88,7 @@ Texty/
 
 1. Clone the repository
    ```bash
-   git clone <your-repo-link> https://github.com/AnushaReddi02/MongoDB-with-Express.git
+   git clone https://github.com/AnushaReddi02/MongoDB-with-Express.git
    ```
 2. Install dependencies
    ```bash
