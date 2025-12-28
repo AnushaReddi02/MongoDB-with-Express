@@ -129,6 +129,6 @@ Built with ❤️ while learning backend development using ***Node.js, Express &
 
 ## 👩‍💻 Author
 
- ***Reddi Anusha***
+ ***Reddi Anusha*** <br>
  CSE Student | Aspiring Full-Stack & Cloud Developer
  
