@@ -63,5 +63,14 @@ textarea{
     font-weight: bold;
     border-radius: 5px;
     border: none;
+}
+
+.del{
+    background-color: red;
+    color: whitesmoke;
+    font-weight: bold;
+    padding: 15px;
+     border-radius: 5px;
+    border: none;
     margin-bottom: 20px;
 }

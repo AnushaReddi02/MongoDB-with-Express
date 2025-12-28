@@ -21,6 +21,29 @@
             <form action="/chats/<%= chat._id %>/edit" method="GET">
                 <button class="edit">EDIT</button>
             </form>
+                <br />
+            <form action="/chats/<%= chat._id %>?_method=DELETE" method="POST">
+
+                <!-- 
+                            The 'action' attribute defines WHERE the form data should be sent.
+
+                            "/chats/<%= chat._id %>?_method=DELETE" breaks down as:
+
+                            1. /chats/            -> base route for chat resources
+                            2. <%= chat._id %>    -> dynamically inserts the unique MongoDB ID of the chat
+                                                    (EJS replaces this with the actual ID at runtime)
+                            3. ?_method=DELETE   -> query parameter used by method-override
+                                                    It tells Express to treat this request as a DELETE request
+
+                            Even though the form uses method="POST",
+                            method-override will convert it into a DELETE request.
+
+                            Final request handled by Express:
+                            DELETE /chats/:id
+                -->
+                            
+                <button class="del">DELETE</button>
+            </form>
         </div>
         <p class="time"><%= chat.created_at.toString().split(" ")[4] %></p>
          <!-- chat.created_at : Wed Dec 24 2025 17:38:04 GMT+0530 (India Standard Time) -->
