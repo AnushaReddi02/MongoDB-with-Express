@@ -16,7 +16,7 @@ how **Express, MongoDB, and EJS** work together in a full-stack web application.
 
 | Resource | Link |
 |--------|------|
-| 🌐 Live Site (Render) | https://texty-rsat.onrender.com/chats |
+| 🌐 Live Site (Render) | https://texty-rsat.onrender.com |
 | 💻 GitHub Repository | https://github.com/AnushaReddi02/MongoDB-with-Express |
 | 📥 Clone Repository | `git clone https://github.com/AnushaReddi02/MongoDB-with-Express.git` |
 
