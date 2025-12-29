@@ -12,7 +12,8 @@ app.use(express.static(path.join(__dirname,"public")));
 app.use(express.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
 
-const port = 8080;
+// const port = 8080;
+const PORT = process.env.PORT || 3000;
 
 main()
 .then(()=>{
@@ -24,7 +25,8 @@ main()
 
 async function main(){
     // texty is the name of database
-    await mongoose.connect('mongodb://127.0.0.1:27017/texty');
+    // await mongoose.connect('mongodb://127.0.0.1:27017/texty');
+    mongoose.connect(process.env.MONGO_URL);
 }
 app.get("/",(req,res)=>{
     res.send("Basic set up is Clear...!!!");
