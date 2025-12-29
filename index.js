@@ -7,7 +7,7 @@ const methodOverride = require("method-override");
 const Chat = require('./models/chat.js');
 
 app.set("views",path.join(__dirname,"views"));
-app.set("view wngine","ejs");
+app.set("view engine","ejs");
 app.use(express.static(path.join(__dirname,"public")));
 app.use(express.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
@@ -26,7 +26,7 @@ main()
 async function main(){
     // texty is the name of database
     // await mongoose.connect('mongodb://127.0.0.1:27017/texty');
-    mongoose.connect(process.env.MONGO_URL);
+    await mongoose.connect(process.env.MONGO_URL);
 }
 app.get("/",(req,res)=>{
     res.redirect("/chats");
@@ -105,5 +105,5 @@ app.delete("/chats/:id",async (req,res)=>{
 });
 
 app.listen(PORT,()=>{
-    console.log(`Server is listening on port ${port}`);
+    console.log(`Server is listening on port ${PORT}`);
 });
