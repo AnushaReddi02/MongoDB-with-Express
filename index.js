@@ -103,6 +103,6 @@ app.delete("/chats/:id",async (req,res)=>{
     res.redirect("/chats");
 });
 
-app.listen(port,()=>{
+app.listen(PORT,()=>{
     console.log(`Server is listening on port ${port}`);
 });
