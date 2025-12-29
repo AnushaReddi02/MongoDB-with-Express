@@ -29,7 +29,8 @@ async function main(){
     mongoose.connect(process.env.MONGO_URL);
 }
 app.get("/",(req,res)=>{
-    res.send("Basic set up is Clear...!!!");
+    res.redirect("/chats");
+    console.log("Basic set up is Clear...!!!");
 });
 
 // Index Route - It is like home page and it shows all the chats
